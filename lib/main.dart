@@ -32,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _qrData = Crypt().set(DateFormat('dd-MM-yyyy HH:mm:ss').format(DateTime.now()), "encrypt");
+  String _qrData = Crypt().set(DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()), "encrypt");
   int _start = 30;
   bool _visible = true;
 
@@ -44,8 +44,11 @@ class _MyHomePageState extends State<MyHomePage> {
         () {
           if (_start <= 1) {
             _visible = false;
-            _qrData = Crypt().set(DateFormat('dd-MM-yyyy HH:mm:ss').format(DateTime.now()), "encrypt");
+            _qrData = Crypt().set(DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()), "encrypt");
             _start = 30;
+            print(_qrData);
+
+            print(DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()));
           } else {
             _visible = true;
             _start = _start - 1;
